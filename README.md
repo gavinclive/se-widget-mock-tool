@@ -1,5 +1,4 @@
 # StreamElements Widget Mocking Tool
----
 ![License](https://img.shields.io/github/license/gavinclive/se-widget-mock-tool)
 ![Version](https://img.shields.io/github/v/release/gavinclive/se-widget-mock-tool)
 
