@@ -97,7 +97,7 @@ se-widget-mock-tool/
 ```
 
 ## 🤝 Contributing
-We welcome contributions from the community! Whether you want to add support for new events, improve existing functionality, or fix bugs, your help is appreciated.
+All contributions are welcomed from the community! Whether you want to add support for new events, improve existing functionality, or fix bugs, your help is appreciated.
 1. **Fork the Repository**: Start by forking the repository to your GitHub account.
 2. **Create a Branch**: Create a new branch for your feature or bug fix.
 ```sh
