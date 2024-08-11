@@ -2,6 +2,7 @@
 ---
 ![License](https://img.shields.io/github/license/gavinclive/se-widget-mock-tool)
 ![Version](https://img.shields.io/github/v/release/gavinclive/se-widget-mock-tool)
+
 The **StreamElements Widget Mocking Tool** is a development utility designed to help developers create and test StreamElements widgets locally. Initially focused on chat widgets, this tool allows for the development and testing of widgets within a local environment, making it easier to iterate quickly without needing to deploy changes or rely on live environments. The tool also welcomes community contributions for mocking other events.
 
 ## 🚀 Features
