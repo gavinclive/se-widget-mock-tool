@@ -19,8 +19,10 @@
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
+    "lightningcss": "^1.26.0",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.9",
+    "terser": "^5.31.6",
     "vite": "^5.3.1",
     "vite-plugin-static-copy": "^1.0.6"
   }
