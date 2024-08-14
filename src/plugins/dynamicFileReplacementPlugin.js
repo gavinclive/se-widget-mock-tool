@@ -1,7 +1,27 @@
+import { minify } from 'terser'
+import { transform } from 'lightningcss'
 import fs from 'fs'
 import path from 'path'
 
-function transformFile(file, replacements, outputDir, projectRoot, server = null) {
+const minifyCSS = (css) => {
+  const { code } = transform({
+    filename: 'widget.css',
+    code: Buffer.from(css),
+    minify: true,
+    sourceMap: false,
+  })
+  return code
+}
+
+const minifyJS = async (js) => {
+  const result = await minify(js)
+  if (result.error) {
+    throw result.error
+  }
+  return result.code
+}
+
+const transformFile = async (file, replacements, outputDir, projectRoot, server = null) => {
   const inputFilePath = path.resolve(file)
   const outputFilePath = path.join(outputDir, path.basename(inputFilePath))
   
@@ -13,6 +33,11 @@ function transformFile(file, replacements, outputDir, projectRoot, server = null
   }
 
   fs.mkdirSync(outputDir, { recursive: true })
+  if (inputFilePath.endsWith('.css')) {
+    code = minifyCSS(code)
+  } else if (inputFilePath.endsWith('.js')) {
+    code = await minifyJS(code)
+  }
   fs.writeFileSync(outputFilePath, code, 'utf-8')
 
   const relativeOutputFilePath = path.relative(projectRoot, outputFilePath)
