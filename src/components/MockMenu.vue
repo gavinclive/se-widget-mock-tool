@@ -7,6 +7,7 @@ const customMessageSubscriber = ref(true)
 const simpleEventUsername = ref('Julius')
 const simpleEventKind = ref('follower-latest')
 const simpleEventMessage = ref('')
+const subscriberTier = ref()
 
 const SIMPLE_EVENTS = [
   {
@@ -39,6 +40,25 @@ const SIMPLE_EVENTS = [
   }
 ]
 
+const SUB_TIERS = [
+  {
+    label: 'Prime',
+    value: 'prime',
+  },
+  {
+    label: 'Tier 1',
+    value: 1000,
+  },
+  {
+    label: 'Tier 2',
+    value: 2000,
+  },
+  {
+    label: 'Tier 3',
+    value: 3000,
+  }
+]
+
 const triggerTestMessage = (eventTrigger) => {
   eventTrigger.triggerTestMessage()
 }
@@ -53,7 +73,7 @@ const triggerCustomMessage = (eventTrigger) => {
 
 
 const triggerSimpleEvent = (eventTrigger) => {
-  eventTrigger.triggerSimpleEvent(simpleEventUsername.value, simpleEventKind.value, simpleEventMessage.value)
+  eventTrigger.triggerSimpleEvent(simpleEventUsername.value, simpleEventKind.value, simpleEventMessage.value, subscriberTier.value)
 }
 
 defineProps(['eventTrigger'])
@@ -133,6 +153,19 @@ defineProps(['eventTrigger'])
       >
         <option
           v-for="(e, i) in SIMPLE_EVENTS"
+          :key="i"
+          :value="e.value"
+        >
+          {{ e.label }}
+        </option>
+      </select>
+      <select
+        v-if="simpleEventKind === 'subscriber-latest'"
+        v-model="subscriberTier"
+        class="border-2 rounded-lg px-2 h-8"
+      >
+        <option
+          v-for="(e, i) in SUB_TIERS"
           :key="i"
           :value="e.value"
         >

@@ -82,7 +82,7 @@ export default class EventTrigger {
     this.iframe.contentWindow.dispatchEvent(event)
   }
 
-  triggerSimpleEvent(username, kind, message) {
+  triggerSimpleEvent(username, kind, message, tier) {
     let listener = kind
 
     if(kind === 'sub-gift-latest') {
@@ -98,6 +98,7 @@ export default class EventTrigger {
           amount: Math.floor(Math.random() * 999),
           message,
           gifted: kind === 'sub-gift-latest',
+          tier,
         }
       }
     })
