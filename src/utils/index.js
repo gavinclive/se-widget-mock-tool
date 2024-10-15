@@ -58,7 +58,7 @@ export default class EventTrigger {
               id: 'custom-message-id',
               mod: '0',
               'room-id': 'custom-room-id',
-              subscriber: subscriber === 'true' ? '1' : '0',
+              subscriber: subscriber ? '1' : '0',
               'tmi-sent-ts': Date.now(),
               turbo: '0',
               'user-id': 'custom-user-id',
