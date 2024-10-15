@@ -1,3 +1,5 @@
+import htmlContent from '@/widget/widget.html?raw'
+
 const html = `
   <html>
     <head>
@@ -6,15 +8,13 @@ const html = `
       <script defer src="/widget.js"></script>
     </head>
     <body>
-      <div class="main-container"></div>
+      ${htmlContent}
     </body>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const event = new CustomEvent('onWidgetLoad', {
           detail: {
             fieldData: {
-              animationIn: 'bounceIn',
-              animationOut: 'bounceOut',
               hideAfter: 600,
               messagesLimit: 100,
               nickColor: 'user',
